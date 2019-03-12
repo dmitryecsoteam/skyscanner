@@ -43,6 +43,8 @@ public class PriceAirplaneServiceTest {
     @Autowired
     RestTemplate restTemplate;
 
+
+
     @Autowired
     TravelsDAO travels;
 
@@ -100,7 +102,7 @@ public class PriceAirplaneServiceTest {
     public void testProcessTravels() throws Exception {
         String firstURL = service.generateURL("IAT", "XXX", "2000-01-03");
         mockServer.expect(once(), requestTo(firstURL))
-                .andRespond(withSuccess(RESPONSE, MediaType.APPLICATION_JSON));
+               .andRespond(withSuccess(RESPONSE, MediaType.APPLICATION_JSON));
 
         for (int i = 2; i <= numberOfMonths; i++) {
             String url = service.generateURL("IAT", "XXX", "2000-0" + i + "-01");

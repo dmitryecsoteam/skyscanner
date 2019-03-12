@@ -43,9 +43,11 @@ public class SkyscannerApplication {
 		SpringApplication.run(SkyscannerApplication.class, args);
 	}
 
-	@Scheduled(cron = "${cronTimer}")
+	//@Scheduled(cron = "${cronTimer}")
+	@Scheduled(fixedRate=1000)
 	@Async("threadPoolExecutor")
 	public void processTravelsWrapper() {
+		System.out.println("inside scheduler");
 		service.processTravels(LocalDate.now());
 	}
 }

@@ -16,6 +16,7 @@ import su.ecso.skyscanner.repositories.TravelsDAO;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -62,6 +63,9 @@ public class PriceAirplaneService {
 
             // Get all destinations
             List<Destinations> destinationsList = destinations.findAll();
+
+            // API has limitation of 20 queries
+            Collections.shuffle(destinationsList);
 
             originsList
                     .parallelStream()

@@ -27,6 +27,8 @@ public class SkyscannerApiServiceTest {
     @Autowired
     RestTemplate restTemplate;
 
+
+
     @Autowired
     SkyscannerApiService api;
 
